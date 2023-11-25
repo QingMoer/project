@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Produce Stand CRUD</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- 引入头部和导航栏 -->
+    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/nav.ejs') %>
+
+    <!-- 显示当前类别标题 -->
+    <h2 class="category-title text-center my-5"><%= category %> Products</h2>
+
+    <!-- 提供返回首页的链接 -->
+    <a href="/" class="btn btn-primary mb-3 d-block mx-auto">Back</a>
+
+    <!-- 为每个商品创建一个卡片 -->
+    <div class="row justify-content-center mt-4">
+      <% for(let product of products) { %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <!-- 商品名称 -->
+              <h5 class="card-title mb-0"><%= product.name %></h5>
+
+              <!-- 编辑、查看和删除的链接 -->
+              <div class="d-flex flex-wrap justify-content-between align-items-center mt-2">
+                <a href="/edit/<%= product.id %>" class="btn btn-sm btn-primary mr-2">Edit</a>
+                <a href="/products/<%= product.id %>" class="btn btn-sm btn-secondary">View</a>
+                <a href="/delete/<%= product.id %>" class="btn btn-sm btn-danger">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- 添加新产品的按钮 -->
+    <a href="/new" class="btn btn-primary mb-4 d-block mx-auto"> Add Product</a>
+     
+  
+  </body>
+</html>

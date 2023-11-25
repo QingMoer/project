@@ -1,0 +1,52 @@
+                /* Some custom styles to make it more beautiful */
+				.navbar {
+                    background-color: #333;
+                  }
+                  .navbar-brand img {
+                    width: 80px;
+                    height: auto;
+                  }
+                  .nav-item a:hover,
+                  .nav-item a:focus {
+                    color: white;
+                    text-decoration: none;
+                  }
+                  .dropdown-menu {
+                    margin-top: 10px;
+                    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                  }
+                  .dropdown-item {
+                    padding: 10px 20px;
+                    font-size: 14px;
+                  }
+                  .dropdown-item i {
+                    margin-right: 10px;
+                  }
+                  .nav-link {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    transition: all 0.3s ease-in-out;
+                  }
+                  .search-box {
+                    display: flex;
+                    align-items: center;
+                  }
+                  .search-input {
+                    width: 80%;
+                    border-radius: 20px;
+                    border: none;
+                    padding-left: 10px;
+                    outline: none;
+                  }
+                  .search-btn {
+                    border-radius: 50%;
+                    border: none;
+                    background-color: #f44336;
+                    color: white;
+                    padding: 10px;
+                    cursor: pointer;
+                  }
+                  .search-btn:hover,
+                  .search-btn:focus {
+                    background-color: #ef9a9a;
+                  }
