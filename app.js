@@ -8,6 +8,9 @@ const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+app.use(express.static(path.join(__dirname, 'public')));
+// Passport Config
+require('./config/passport')(passport);
 
 // global middleware
 // 1. body-parser to parse request body
@@ -33,19 +36,6 @@ mongoose.connect('mongodb+srv://root:root123456@cluster0.5z0oflj.mongodb.net/par
     });
 var serveStatic = require('serve-static'); // public
 app.use(serveStatic('public')); // path：public
-// routers
-app.use('/', indexRouter);
-
-app.use('/products', productRouter);
-app.use('/products', showRouter)
-app.use('/products', createRouter);
-app.use('/products', editRouter);
-app.use('/products', deleteRouter);
-
-app.use('/edit', editRouter);
-app.use('/new', createRouter);
-
-app.use('/delete', deleteRouter);
 
 
 // 1. set view path, __dirname references current directory
@@ -86,6 +76,18 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+app.use('/', indexRouter);
+
+app.use('/products', productRouter);
+app.use('/products', showRouter)
+app.use('/products', createRouter);
+app.use('/products', editRouter);
+app.use('/products', deleteRouter);
+
+app.use('/edit', editRouter);
+app.use('/new', createRouter);
+
+app.use('/delete', deleteRouter);
 
 
 const PORT = process.env.PORT || 5000;

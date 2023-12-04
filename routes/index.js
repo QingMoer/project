@@ -4,10 +4,10 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 /* GET home page. */
 
 // Welcome Page   forwardAuthenticated,
-router.get('/',  (req, res) => res.render('welcome'));
+router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard   ensureAuthenticated,
-router.get('/dashboard', (req, res) =>
+router.get('/dashboard',ensureAuthenticated,(req, res) =>
   res.render('dashboard', {
     user: req.user
   })
@@ -21,7 +21,7 @@ const categories = ['fruit', 'vegetables', 'dairy', 'other'];
 
 // get create page
 // get /new
-router.get('/new', async (req,res) => {
+router.get('/new', ensureAuthenticated,async (req,res) => {
     const { id } = req.params;
     const product = await Product.findById(id);
     res.render('products/create', { product, categories });

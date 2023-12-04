@@ -6,11 +6,11 @@ const passport = require('passport');
 const User = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
 
-// Login Page   forwardAuthenticated, 
-router.get('/login', (req, res) => res.render('login'));
+// Login Page 
+router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 
-// Register Page    forwardAuthenticated, 
-router.get('/register', (req, res) => res.render('register'));
+// Register Page  
+router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
 // Register
 router.post('/register', (req, res) => {
@@ -78,12 +78,21 @@ router.post('/register', (req, res) => {
 
 // Login
 router.post('/login', (req, res, next) => {
-  res.redirect('/dashboard');
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/users/login',
+    failureFlash: true
+  })(req, res, next);
 });
 
 // Logout
 router.get('/logout', (req, res) => {
+  req.logout();
+  // req.logout(function(err) {
+  //   if (err) { return next(err); }
+  //   res.redirect('/dashboard');
+  // });
+  req.flash('success_msg', 'You are logged out');
   res.redirect('/users/login');
 });
-
 module.exports = router;
