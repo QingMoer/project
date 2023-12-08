@@ -1,19 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Produce Stand CRUD</title>
-</head>
 <body>
-    <%- include('../partials/header.ejs') %>
     <%- include('../partials/nav.ejs') %>
+<div class="container centered">
 <h1>Product:</h1>
 <a href="/products">Back</a> <br>
 <%= product.id %> <br>
 <%= product.name %> <br>
 Category: <a href="/products?category=<%= product.category %>"><%= product.category %></a>
+</div>
 </body>
 </html>

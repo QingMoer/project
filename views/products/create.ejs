@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produce Stand CRUD</title>
-    <link rel="stylesheet" type="text/css" href="../css/create.css"/>
-</head>
+<link rel="stylesheet" type="text/css" href="../css/create.css"/>
 
 <body>
-    <%- include('../partials/header.ejs') %>
+    
     <%- include('../partials/nav.ejs') %>
+    <div class="container">
     <h1>Create New Item:</h1>
     
     <form action="/products/<%= product %>" method="POST">
@@ -34,5 +28,6 @@
         
         <button type="submit">Add Product</button>
     </form>
+    </div>
 </body>
 </html>

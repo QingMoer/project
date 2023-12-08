@@ -307,22 +307,46 @@ body {
 
 /*3.底部*/
 #footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
 	width: 100%;
-	height: 110px;
+	height: 100px;
 	margin: 0 auto;
 	padding-top: 28px;
 	text-align: center;
 	background: black;
 	color: #89898B;
-	
-	
 }
 #footer p {
 	line-height: 30px;
 	font-size: 11px;
-	
 }
 #footer a{
 	font-size: 11px;
 	margin: 0 8px;
+}
+
+.nav-padding {
+	padding: 15px;
+}
+
+.container {
+	padding-top: 65px;
+}
+
+.btns {
+	margin: 0 auto;
+	max-width: 400px;
+}
+
+.centered {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+}
+
+.small {
+	max-width: 400px;
 }
